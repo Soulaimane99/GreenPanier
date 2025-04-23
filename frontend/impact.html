@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mon Impact CO₂ – GreenPanier</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <nav>
+          <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
+            <li><a href="index.html">🏠 Accueil</a></li>
+            <li><a href="users.html">👤 Utilisateurs</a></li>
+            <li><a href="achats.html">🛒 Achats</a></li>
+            <li><a href="impact.html">🌍 Impact CO₂</a></li>
+            <li><a href="dashboard.html"><strong>📊 Dashboard</strong></a></li>
+            <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+  <h1>Impact Carbone Hebdomadaire</h1>
+
+  <canvas id="impactChart" width="600" height="300"></canvas>
+
+  <section>
+    <h2>Conseils personnalisés 🌱</h2>
+    <ul id="eco-tips">
+      <li>Réduisez la viande rouge (27kg CO₂/kg !)</li>
+      <li>Privilégiez les produits locaux et de saison</li>
+      <li>Remplacez les bouteilles plastiques par une gourde</li>
+    </ul>
+  </section>
+
+  <script src="impact.js"></script>
+
+  <script src="menu.js"></script>
+
+</body>
+</html>

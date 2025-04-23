@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      window.location.href = "login.html";
+    } else if (user.role !== "admin") {
+      alert("Accès réservé à l’administrateur");
+      window.location.href = "index.html";
+    }
+  </script>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestion des achats – GreenPanier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <nav>
+          <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
+            <li><a href="index.html">🏠 Accueil</a></li>
+            <li><a href="users.html">👤 Utilisateurs</a></li>
+            <li><a href="achats.html">🛒 Achats</a></li>
+            <li><a href="impact.html">🌍 Impact CO₂</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+  <h1>Gestion des achats</h1>
+
+  <form id="purchase-form">
+    <select id="user_id" required></select>
+    <select id="product_id" required></select>
+    <input type="number" id="quantity_per_week" placeholder="Quantité / semaine" required />
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h2>Liste des achats</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Utilisateur</th>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="purchase-table"></tbody>
+  </table>
+
+  <script src="achats.js"></script>
+
+  <script src="menu.js"></script>
+
+
+</body>
+</html>
+

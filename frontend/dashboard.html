@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tableau de bord – GreenPanier</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Menu de navigation -->
+  <header>
+    <nav>
+      <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
+        <li><a href="index.html">🏠 Accueil</a></li>
+        <li><a href="users.html">👤 Utilisateurs</a></li>
+        <li><a href="achats.html">🛒 Achats</a></li>
+        <li><a href="impact.html">🌍 Impact CO₂</a></li>
+        <li><a href="dashboard.html"><strong>📊 Dashboard</strong></a></li>
+        <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Tableau de bord</h1>
+
+  <section>
+    <p><strong>Total utilisateurs :</strong> <span id="total-users">...</span></p>
+    <p><strong>Total achats :</strong> <span id="total-purchases">...</span></p>
+  </section>
+
+  <section>
+    <h2>Top 3 produits les plus polluants 🌍</h2>
+    <canvas id="topProductsChart" width="600" height="300"></canvas>
+  </section>
+
+  <script src="dashboard.js"></script>
+
+  <script src="menu.js"></script>
+
+  
+</body>
+</html>

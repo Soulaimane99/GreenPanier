@@ -1,59 +1,55 @@
 <!DOCTYPE html>
-<script>
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      window.location.href = "login.html";
-    } else if (user.role !== "admin") {
-      alert("Accès réservé à l’administrateur");
-      window.location.href = "index.html";
-    }
-  </script>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Gestion des achats – GreenPanier</title>
+  <title>Achats – GreenPanier</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <nav>
-          <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
-            <li><a href="index.html">🏠 Accueil</a></li>
-            <li><a href="users.html">👤 Utilisateurs</a></li>
-            <li><a href="achats.html">🛒 Achats</a></li>
-            <li><a href="impact.html">🌍 Impact CO₂</a></li>
-          </ul>
-        </nav>
-      </header>
-      
-  <h1>Gestion des achats</h1>
 
-  <form id="purchase-form">
-    <select id="user_id" required></select>
-    <select id="product_id" required></select>
-    <input type="number" id="quantity_per_week" placeholder="Quantité / semaine" required />
-    <button type="submit">Ajouter</button>
-  </form>
+  <!-- Menu -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Accueil</a></li>
+        <li><a href="achats.html">🛒 Achats</a></li>
+        <li><a href="impact.html">🌍 Impact CO₂</a></li>
+        <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h2>Liste des achats</h2>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Utilisateur</th>
-        <th>Produit</th>
-        <th>Quantité</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="purchase-table"></tbody>
-  </table>
+  <main>
+    <h1>🛒 Saisir mes achats hebdomadaires</h1>
 
-  <script src="achats.js"></script>
+    <p style="text-align: center;">
+      Indiquez les produits que vous consommez régulièrement afin d’évaluer leur impact carbone hebdomadaire.
+      Cela nous permet de vous proposer des recommandations personnalisées.
+    </p>
+
+    <form id="purchase-form">
+      <select id="product_id" required></select>
+      <input type="number" id="quantity_per_week" placeholder="Quantité / semaine" required />
+      <button type="submit">➕ Ajouter</button>
+    </form>
+
+    <h2>📦 Liste de vos achats</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Utilisateur</th>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="purchase-table"></tbody>
+    </table>
+  </main>
 
   <script src="menu.js"></script>
-
-
+  <script src="achats.js"></script>
 </body>
 </html>
-

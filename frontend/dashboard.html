@@ -2,41 +2,46 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Tableau de bord – GreenPanier</title>
+  <title>Dashboard – GreenPanier</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Menu de navigation -->
+
+  <!-- Menu -->
   <header>
     <nav>
-      <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
+      <ul>
         <li><a href="index.html">🏠 Accueil</a></li>
-        <li><a href="users.html">👤 Utilisateurs</a></li>
         <li><a href="achats.html">🛒 Achats</a></li>
         <li><a href="impact.html">🌍 Impact CO₂</a></li>
-        <li><a href="dashboard.html"><strong>📊 Dashboard</strong></a></li>
         <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
       </ul>
     </nav>
   </header>
 
-  <h1>Tableau de bord</h1>
+  <main>
+    <h1>📊 Tableau de bord global</h1>
 
-  <section>
-    <p><strong>Total utilisateurs :</strong> <span id="total-users">...</span></p>
-    <p><strong>Total achats :</strong> <span id="total-purchases">...</span></p>
-  </section>
+    <p style="text-align: center;">
+      Cette page regroupe les données globales de l’application : nombre total d’utilisateurs, nombre total d’achats,
+      ainsi que les produits les plus polluants enregistrés.
+    </p>
 
-  <section>
-    <h2>Top 3 produits les plus polluants 🌍</h2>
-    <canvas id="topProductsChart" width="600" height="300"></canvas>
-  </section>
+    <section>
+      <h2>📌 Données générales</h2>
+      <p><strong>Nombre total d’utilisateurs :</strong> <span id="total-users">…</span></p>
+      <p><strong>Nombre total d’achats :</strong> <span id="total-purchases">…</span></p>
+    </section>
 
-  <script src="dashboard.js"></script>
+    <section>
+      <h2>🔥 Top 3 des produits les plus polluants</h2>
+      <canvas id="topProductsChart" width="600" height="300"></canvas>
+    </section>
+  </main>
 
   <script src="menu.js"></script>
-
-  
+  <script src="dashboard.js"></script>
 </body>
 </html>

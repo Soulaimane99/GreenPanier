@@ -2,40 +2,46 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Mon Impact CO₂ – GreenPanier</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Impact CO₂ – GreenPanier</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-          <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
-            <li><a href="index.html">🏠 Accueil</a></li>
-            <li><a href="users.html">👤 Utilisateurs</a></li>
-            <li><a href="achats.html">🛒 Achats</a></li>
-            <li><a href="impact.html">🌍 Impact CO₂</a></li>
-            <li><a href="dashboard.html"><strong>📊 Dashboard</strong></a></li>
-            <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
-          </ul>
-        </nav>
-      </header>
-      
-  <h1>Impact Carbone Hebdomadaire</h1>
 
-  <canvas id="impactChart" width="600" height="300"></canvas>
+  <!-- Menu -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Accueil</a></li>
+        <li><a href="achats.html">🛒 Achats</a></li>
+        <li><a href="impact.html">🌍 Impact CO₂</a></li>
+        <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section>
-    <h2>Conseils personnalisés 🌱</h2>
-    <ul id="eco-tips">
-      <li>Réduisez la viande rouge (27kg CO₂/kg !)</li>
-      <li>Privilégiez les produits locaux et de saison</li>
-      <li>Remplacez les bouteilles plastiques par une gourde</li>
-    </ul>
-  </section>
+  <main>
+    <h1>🌿 Mon rapport carbone hebdomadaire</h1>
 
-  <script src="impact.js"></script>
+    <p style="text-align: center;">
+      Voici votre impact carbone hebdomadaire estimé à partir de vos habitudes de consommation.
+      Ce rapport vous aide à mieux comprendre votre empreinte écologique.
+    </p>
+
+    <p style="text-align: center; font-size: 1.5rem;">
+      💨 Impact total : <strong><span id="impact-total">…</span> kg CO₂ / semaine</strong>
+    </p>
+
+    <canvas id="impactChart" width="600" height="300"></canvas>
+
+    <section>
+      <h2>🌱 Conseils personnalisés</h2>
+      <ul id="eco-tips"></ul>
+    </section>
+  </main>
 
   <script src="menu.js"></script>
-
+  <script src="impact.js"></script>
 </body>
 </html>

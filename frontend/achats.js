@@ -19,11 +19,11 @@ async function loadFormOptions() {
 // Ajouter un achat
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const user_id = form.user_id.value;
   const product_id = form.product_id.value;
   const quantity_per_week = form.quantity_per_week.value;
+  const user_id = JSON.parse(localStorage.getItem('user')).id;
 
-  await fetch(apiPurchases, {
+  await fetch('http://localhost:3000/purchases', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ user_id, product_id, quantity_per_week })
@@ -33,24 +33,48 @@ form.addEventListener('submit', async (e) => {
   loadPurchases();
 });
 
+
 // Charger tous les achats
 async function loadPurchases() {
-  const res = await fetch(apiPurchases);
+  const res = await fetch('http://localhost:3000/purchases');
   const purchases = await res.json();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   table.innerHTML = '';
-  purchases.forEach(p => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${p.id}</td>
-      <td>${p.user_name}</td>
-      <td>${p.product_name}</td>
-      <td><input type="number" value="${p.quantity_per_week}" onchange="updatePurchase(${p.id}, this.value)" /></td>
-      <td><button onclick="deletePurchase(${p.id})">🗑️</button></td>
-    `;
-    table.appendChild(row);
+  purchases
+    .filter(p => user.role === 'admin' || p.user_id === user.id)
+    .forEach(purchase => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>${purchase.id}</td>
+        <td>${purchase.user_name}</td>
+        <td>${purchase.product_name}</td>
+        <td>${purchase.quantity_per_week}</td>
+        <td><button onclick="deletePurchase(${purchase.id})">🗑️</button></td>
+      `;
+      table.appendChild(row);
+    });
+}
+
+// Remplir le select des produits
+async function loadProducts() {
+  const res = await fetch('http://localhost:3000/products');
+  const products = await res.json();
+
+  const selectProduct = document.getElementById('product_id');
+  selectProduct.innerHTML = ''; // Vider avant de remplir
+
+  products.forEach(product => {
+    const option = document.createElement('option');
+    option.value = product.id;
+    option.textContent = product.name;
+    selectProduct.appendChild(option);
   });
 }
+
+// Appeler loadProducts au chargement
+loadProducts();
 
 // Modifier un achat
 async function updatePurchase(id, quantity) {

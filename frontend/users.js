@@ -22,21 +22,22 @@ form.addEventListener('submit', async (e) => {
 
 // Charger tous les utilisateurs
 async function loadUsers() {
-  const res = await fetch(apiUrl);
+  const res = await fetch("http://localhost:3000/users");
   const users = await res.json();
+  const table = document.getElementById("user-table");
+  table.innerHTML = "";
 
-  table.innerHTML = '';
   users.forEach(user => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
+    const row = document.createElement("tr");
+    row.innerHTML = 
       <td>${user.id}</td>
-      <td><input value="${user.name}" onchange="updateUser(${user.id}, this.value, 'name')" /></td>
-      <td><input value="${user.email}" onchange="updateUser(${user.id}, this.value, 'email')" /></td>
+      <td>${user.name}</td>
+      <td>${user.email}</td>
+      <td>${user.role}</td> 
       <td><button onclick="deleteUser(${user.id})">🗑️</button></td>
-    `;
+    ;
     table.appendChild(row);
   });
-}
 
 // Modifier un utilisateur (nom ou email)
 async function updateUser(id, value, field) {

@@ -38,15 +38,16 @@ async function loadUsers() {
     ;
     table.appendChild(row);
   });
+}
 
 // Modifier un utilisateur (nom ou email)
 async function updateUser(id, value, field) {
-  const user = await fetch(`${apiUrl}`).then(res => res.json());
+  const user = await fetch(${apiUrl}).then(res => res.json());
   const found = user.find(u => u.id === id);
   const body = { name: found.name, email: found.email };
   body[field] = value;
 
-  await fetch(`${apiUrl}/${id}`, {
+  await fetch(${apiUrl}/${id}, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
@@ -58,10 +59,10 @@ async function updateUser(id, value, field) {
 // Supprimer un utilisateur
 async function deleteUser(id) {
   if (confirm('Supprimer cet utilisateur ?')) {
-    await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
+    await fetch(${apiUrl}/${id}, { method: 'DELETE' });
     loadUsers();
   }
 }
 
 // Lancer le chargement initial
-loadUsers();
+loadUsers()

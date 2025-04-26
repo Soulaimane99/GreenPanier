@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Achats – GreenPanier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Menu -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Accueil</a></li>
+        <li><a href="achats.html">🛒 Achats</a></li>
+        <li><a href="impact.html">🌍 Impact CO₂</a></li>
+        <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>🛒 Saisir mes achats hebdomadaires</h1>
+
+    <p style="text-align: center;">
+      Indiquez les produits que vous consommez régulièrement afin d’évaluer leur impact carbone hebdomadaire.
+      Cela nous permet de vous proposer des recommandations personnalisées.
+    </p>
+
+    <form id="purchase-form">
+      <select id="product_id" required></select>
+      <input type="number" id="quantity_per_week" placeholder="Quantité / semaine" required />
+      <button type="submit">➕ Ajouter</button>
+    </form>
+
+    <h2>📦 Liste de vos achats</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Utilisateur</th>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="purchase-table"></tbody>
+    </table>
+  </main>
+
+  <script src="menu.js"></script>
+  <script src="achats.js"></script>
+</body>
+</html>

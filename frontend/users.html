@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      window.location.href = "login.html";
+    } else if (user.role !== "admin") {
+      alert("Accès réservé à l’administrateur");
+      window.location.href = "index.html";
+    }
+  </script>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestion des utilisateurs – GreenPanier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <nav>
+          <ul style="display: flex; gap: 20px; list-style: none; padding: 10px; background-color: #e0f7ea;">
+            <li><a href="index.html">🏠 Accueil</a></li>
+            <li><a href="users.html">👤 Utilisateurs</a></li>
+            <li><a href="achats.html">🛒 Achats</a></li>
+            <li><a href="impact.html">🌍 Impact CO₂</a></li>
+            <li><a href="dashboard.html"><strong>📊 Dashboard</strong></a></li>
+            <li id="admin-link"><a href="users.html">👤 Utilisateurs</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+  <h1>Gestion des utilisateurs</h1>
+
+  <form id="user-form">
+    <input type="text" id="name" placeholder="Nom" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Mot de passe" required />
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h2>Liste des utilisateurs</h2>
+  <table border="1">
+    <thead>
+      <tr><th>ID</th><th>Nom</th><th>Email</th><th>Actions</th></tr>
+    </thead>
+    <tbody id="user-table"></tbody>
+  </table>
+
+  <script src="users.js"></script>
+
+  <script src="menu.js"></script>
+
+</body>
+</html>

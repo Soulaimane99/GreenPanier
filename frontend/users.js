@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/users';
+const apiUrl = '/api/users';
 
 const form = document.getElementById('user-form');
 const table = document.getElementById('user-table');
@@ -22,7 +22,7 @@ form.addEventListener('submit', async (e) => {
 
 // Charger tous les utilisateurs
 async function loadUsers() {
-  const res = await fetch("http://localhost:3000/users");
+  const res = await fetch(apiUrl);
   const users = await res.json();
   const table = document.getElementById("user-table");
   table.innerHTML = "";
@@ -39,7 +39,6 @@ async function loadUsers() {
     table.appendChild(row);
   });
 }
-
 
 // Modifier un utilisateur (nom ou email)
 async function updateUser(id, value, field) {
@@ -67,4 +66,4 @@ async function deleteUser(id) {
 }
 
 // Lancer le chargement initial
-loadUsers()
+loadUsers();

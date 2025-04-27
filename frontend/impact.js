@@ -1,6 +1,6 @@
 const ctx = document.getElementById('impactChart').getContext('2d');
 
-fetch('http://localhost:3000/purchases/impact')
+fetch('/api/purchases/impact')
   .then(res => res.json())
   .then(data => {
     const labels = data.map(row => row.name);

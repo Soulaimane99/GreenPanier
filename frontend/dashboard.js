@@ -1,6 +1,6 @@
-const apiUsers = 'http://localhost:3000/users';
-const apiPurchases = 'http://localhost:3000/purchases';
-const apiProducts = 'http://localhost:3000/products';
+const apiUsers = '/api/users';
+const apiPurchases = '/api/purchases';
+const apiProducts = '/api/products';
 
 const totalUsers = document.getElementById('total-users');
 const totalPurchases = document.getElementById('total-purchases');

@@ -5,7 +5,7 @@ form.addEventListener('submit', async (e) => {
   const email = form.email.value;
   const password = form.password.value;
 
-  const res = await fetch('http://localhost:3000/auth/login', {
+  const res = await fetch('/api/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
@@ -20,3 +20,4 @@ form.addEventListener('submit', async (e) => {
     alert('Identifiants incorrects');
   }
 });
+

@@ -6,8 +6,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      window.location.href = 'login.html';
+    }
+  </script>
 
-  <!-- Menu -->
+  
   <header>
     <nav>
       <ul>

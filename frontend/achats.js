@@ -1,6 +1,6 @@
-const apiPurchases = 'http://localhost:3000/purchases';
-const apiUsers = 'http://localhost:3000/users';
-const apiProducts = 'http://localhost:3000/products';
+const apiPurchases = '/api/purchases';
+const apiUsers = '/api/users';
+const apiProducts = '/api/products';
 
 const form = document.getElementById('purchase-form');
 const userSelect = document.getElementById('user_id');
@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
   const quantity_per_week = form.quantity_per_week.value;
   const user_id = JSON.parse(localStorage.getItem('user')).id;
 
-  await fetch('http://localhost:3000/purchases', {
+  await fetch(apiPurchases, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ user_id, product_id, quantity_per_week })
@@ -33,10 +33,9 @@ form.addEventListener('submit', async (e) => {
   loadPurchases();
 });
 
-
 // Charger tous les achats
 async function loadPurchases() {
-  const res = await fetch('http://localhost:3000/purchases');
+  const res = await fetch(apiPurchases);
   const purchases = await res.json();
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -59,7 +58,7 @@ async function loadPurchases() {
 
 // Remplir le select des produits
 async function loadProducts() {
-  const res = await fetch('http://localhost:3000/products');
+  const res = await fetch(apiProducts);
   const products = await res.json();
 
   const selectProduct = document.getElementById('product_id');

@@ -1,11 +1,11 @@
 {
     "rewrites": [
-      { "source": "/", "destination": "/frontend/index.html" },
-      { "source": "/login", "destination": "/frontend/login.html" },
-      { "source": "/register", "destination": "/frontend/register.html" },
-      { "source": "/achats", "destination": "/frontend/achats.html" },
-      { "source": "/impact", "destination": "/frontend/impact.html" },
-      { "source": "/users", "destination": "/frontend/users.html" },
-      { "source": "/dashboard", "destination": "/frontend/dashboard.html" }
+      { "source": "/", "destination": "/index.html" },
+      { "source": "/login", "destination": "/login.html" },
+      { "source": "/register", "destination": "/register.html" },
+      { "source": "/achats", "destination": "/achats.html" },
+      { "source": "/impact", "destination": "/impact.html" },
+      { "source": "/users", "destination": "/users.html" },
+      { "source": "/dashboard", "destination": "/dashboard.html" }
     ]
   }
